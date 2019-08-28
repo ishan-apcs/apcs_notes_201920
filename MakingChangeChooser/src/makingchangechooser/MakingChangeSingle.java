@@ -7,6 +7,8 @@
  * ones, quarters, dimes, nickels, and pennies.
  */
 package makingchangechooser;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class MakingChangeSingle {
@@ -265,6 +267,8 @@ public class MakingChangeSingle {
         
         change *= 100; //allows getChangeForUnit function to use ints instead of doubles, since doubles are inherently bad in math
         
+        Map changeDict = new HashMap();
+        
         tens = getChangeForUnit((int)change, 10); // get number of tens, then subtract that much money from change, etc
         change -= (tens * 1000);
         fives = getChangeForUnit((int)change, 5);
@@ -382,7 +386,13 @@ public class MakingChangeSingle {
     
     public static double removeDollarSign(String text) { // remove any unnecessary text from inputs
         text = text.replaceAll("[^0-9.]", ""); // remove anything that's not a digit or a decimal
-        double money = Double.parseDouble(text); // turn the string into a double and return the amount of money
+        double money;
+        try {
+            money = Double.parseDouble(text); // turn the string into a double and return the amount of money
+        } catch (NumberFormatException e) {
+            money = 0;
+            System.out.println("You had one job. Now you tried to give text when I asked for money. Seriously, if you're going to survive in life, you need to know the difference between text and money.");
+        } 
         return money;
     }
     

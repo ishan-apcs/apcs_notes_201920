@@ -393,7 +393,13 @@ public class MakingChange {
     
     public static double removeDollarSign(String text) { // remove any unnecessary text from inputs
         text = text.replaceAll("[^0-9.]", ""); // remove anything that's not a digit or a decimal
-        double money = Double.parseDouble(text); // turn the string into a double and return the amount of money
+        double money;
+        try {
+            money = Double.parseDouble(text); // turn the string into a double and return the amount of money
+        } catch (NumberFormatException e) {
+            money = 0;
+            System.out.println("You had one job. Now you tried to give text when I asked for money. Seriously, if you're going to survive in life, you need to know the difference between text and money.");
+        } 
         return money;
     }
     

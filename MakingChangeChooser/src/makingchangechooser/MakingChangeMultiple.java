@@ -226,11 +226,6 @@ public class MakingChangeMultiple {
     public static void checkout(Scanner input, double price) {
         double amountGiven;
         double total;
-        System.out.println(price);
-        System.out.println(price * 100);
-        System.out.println(price * 100 * 1.0925);
-        System.out.println(Math.round(price * 100 * 1.0925));
-        System.out.println((double)(Math.round(price * 100 * 1.0925)) / 100);
         total = (double)(Math.round(price * 100 * 1.0925)) / 100;
         
         System.out.println("Your total today is $" + total + ". How much are you going to pay?"); // check for payment
@@ -388,7 +383,13 @@ public class MakingChangeMultiple {
     
     public static double removeDollarSign(String text) { // remove any unnecessary text from inputs
         text = text.replaceAll("[^0-9.]", ""); // remove anything that's not a digit or a decimal
-        double money = Double.parseDouble(text); // turn the string into a double and return the amount of money
+        double money;
+        try {
+            money = Double.parseDouble(text); // turn the string into a double and return the amount of money
+        } catch (NumberFormatException e) {
+            money = 0;
+            System.out.println("You had one job. Now you tried to give text when I asked for money. Seriously, if you're going to survive in life, you need to know the difference between text and money.");
+        } 
         return money;
     }
     
