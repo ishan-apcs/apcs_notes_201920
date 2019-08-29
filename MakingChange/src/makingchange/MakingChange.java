@@ -269,7 +269,7 @@ public class MakingChange {
         change = amountGiven - price;
         
         if (change * 100 != (Math.floor(100 * change))) { // check to make sure change is a decimal with 2 places
-            change = (double)(Math.round(change * 100)) / 100;// make change a decimal with 2 places
+            change = (double)(round(change * 100)) / 100;// make change a decimal with 2 places
         }
         
         origChange = change;
@@ -409,5 +409,20 @@ public class MakingChange {
         } else {
             return "";
         }
+    }
+    
+    public static int round(double input) {
+        int roundedInt;
+        
+        int flooredInput = (int) Math.floor(input);
+        double decimalInput = input - flooredInput;
+        
+        if (decimalInput > 0.5) {
+            roundedInt = flooredInput + 1;
+        } else {
+            roundedInt = flooredInput;
+        }
+        
+        return roundedInt;
     }
 }
