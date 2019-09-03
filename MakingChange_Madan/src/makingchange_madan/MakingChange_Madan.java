@@ -110,9 +110,9 @@ public class MakingChange_Madan { // stores main function, any common functions 
             menuOrNo = menuOrNo.replaceAll("[^yesno]",""); // remove any extra characters beyond yes & no
         }
             
-        if (menuOrNo.equals("yes")) {
+        if (menuOrNo.equals("yes")) { // if user wants to see menu
             price = yesMenu(input); // run code for menu
-        } else if (menuOrNo.equals("no")) {
+        } else if (menuOrNo.equals("no")) { // if user doesn't want menu
             price = noMenu(input); // run code to build own order
         } else {
             System.out.println("input error"); // if answer is neither yes nor no, code must have malfunctioned
