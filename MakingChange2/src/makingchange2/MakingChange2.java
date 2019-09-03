@@ -250,25 +250,25 @@ public class MakingChange2 {
     }
     
     public static void checkout(Scanner input, double price) {
-        double amountGiven;
+        double payment;
         
         System.out.println("Your total today is $" + price + ". How much are you going to pay? The dollar sign is optional"); // check for payment
-        amountGiven = removeDollarSign(input.nextLine());
+        payment = removeDollarSign(input.nextLine());
         
-        while (amountGiven < price) { // make sure payment covers price
+        while (payment < price) { // make sure payment covers price
             System.out.println("Sorry, that's not enough to cover $" + price + ". Please enter an amount of money that covers the cost.");
-            amountGiven = removeDollarSign(input.nextLine());
+            payment = removeDollarSign(input.nextLine());
         
-            while (amountGiven * 100 != (Math.floor(100 * amountGiven))) {
+            while (payment * 100 != (Math.floor(100 * payment))) {
                 System.out.println("Sorry, we can't accept any more than two decimal places");
-                amountGiven = removeDollarSign(input.nextLine());
+                payment = removeDollarSign(input.nextLine());
             }
         }
         
-        getChange(price, amountGiven); // print change, given price and payment
+        getChange(price, payment); // print change, given price and payment
     }
     
-    public static void getChange(double price, double amountGiven) {
+    public static void getChange(double price, double payment) {
         double change;
         double origChange;
         
@@ -280,7 +280,7 @@ public class MakingChange2 {
         int nickels;
         int pennies;
         
-        change = amountGiven - price;
+        change = payment - price;
         
         if (change * 100 != (Math.floor(100 * change))) { // check to make sure change is a decimal with 2 places
             change = (double)(round(change * 100)) / 100;// make change a decimal with 2 places

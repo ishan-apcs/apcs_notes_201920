@@ -129,7 +129,7 @@ public class MakingChange {
         String order;
         
         double price;
-        double amountGiven;
+        double payment;
         
         price = 0.00;
         menu = menu();
@@ -200,19 +200,19 @@ public class MakingChange {
         }
         
         System.out.println("That costs $" + price + ". How much are you paying today?"); // check for payment
-        amountGiven = removeDollarSign(input.nextLine());
+        payment = removeDollarSign(input.nextLine());
         
-        while (amountGiven < price) { // make sure payment covers price
+        while (payment < price) { // make sure payment covers price
             System.out.println("Sorry, that's not enough to cover the price of $" + price + ". Please enter an amount of money that covers the cost.");
-            amountGiven = removeDollarSign(input.nextLine());
+            payment = removeDollarSign(input.nextLine());
         
-            while (amountGiven * 100 != (Math.floor(100 * amountGiven))) {
+            while (payment * 100 != (Math.floor(100 * payment))) {
                 System.out.println("Sorry, we can't accept any more than two decimal places");
-                amountGiven = removeDollarSign(input.nextLine());
+                payment = removeDollarSign(input.nextLine());
             }
         }
         
-        getChange(price, amountGiven); // print change, given price and payment
+        getChange(price, payment); // print change, given price and payment
         
     }
     
@@ -220,7 +220,7 @@ public class MakingChange {
         String item;
         
         double price;
-        double amountGiven;
+        double payment;
         
         System.out.println("What are you buying today?");
         item = input.nextLine();
@@ -234,27 +234,27 @@ public class MakingChange {
         }
         
         System.out.println("And how much are you paying today? The dollar sign is still optional."); // get payment amount
-        amountGiven = removeDollarSign(input.nextLine());
+        payment = removeDollarSign(input.nextLine());
         
-        while (amountGiven * 100 != (Math.floor(100 * amountGiven))) {
+        while (payment * 100 != (Math.floor(100 * payment))) {
             System.out.println("Sorry, we can't accept any more than two decimal places"); // make sure payment amount has only 2 decimal places
-            amountGiven = removeDollarSign(input.nextLine());
+            payment = removeDollarSign(input.nextLine());
         }
         
-        while (amountGiven < price) {
+        while (payment < price) {
             System.out.println("Sorry, that's not enough to cover $" + price + ". Please enter an amount of money that covers the cost."); // make sure payment can cover cost
-            amountGiven = removeDollarSign(input.nextLine());
+            payment = removeDollarSign(input.nextLine());
         
-            while (amountGiven * 100 != (Math.floor(100 * amountGiven))) {
+            while (payment * 100 != (Math.floor(100 * payment))) {
                 System.out.println("Sorry, we can't accept any more than two decimal places");
-                amountGiven = removeDollarSign(input.nextLine());
+                payment = removeDollarSign(input.nextLine());
             }
         }
         
-        getChange(price, amountGiven); // print change for price and payment
+        getChange(price, payment); // print change for price and payment
     }
     
-    public static void getChange(double price, double amountGiven) {
+    public static void getChange(double price, double payment) {
         double change;
         double origChange;
         
@@ -266,7 +266,7 @@ public class MakingChange {
         int nickels;
         int pennies;
         
-        change = amountGiven - price;
+        change = payment - price;
         
         if (change * 100 != (Math.floor(100 * change))) { // check to make sure change is a decimal with 2 places
             change = (double)(round(change * 100)) / 100;// make change a decimal with 2 places

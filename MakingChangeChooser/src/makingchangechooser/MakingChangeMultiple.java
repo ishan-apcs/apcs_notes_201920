@@ -37,6 +37,9 @@ public class MakingChangeMultiple {
                 System.out.println("input error");
                 System.exit(0);
             }
+            totalPrice *= 100;
+            totalPrice = MakingChangeChooser.round(totalPrice);
+            totalPrice /= 100;
             System.out.println("Your subtotal is $" + totalPrice + ".");
             // ask user if they want to continue adding items or if they want to go to checkout()
             System.out.println("Would you like to check out now? Please answer yes to check out or no to continue adding items to your order.");
