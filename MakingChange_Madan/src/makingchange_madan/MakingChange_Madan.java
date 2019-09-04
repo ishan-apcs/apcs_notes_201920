@@ -9,7 +9,7 @@ import java.util.Scanner;
  * My project will ask the user whether they want to buy a single or multiple items, then start the appropriate program. Either program will offer a menu, or a build-your-own order option, then get the item(s) they want to purchase. Menu options will already have
  * a price built in, build-your-own orders will ask for the price. Both programs will then ask for payment, and then return change in tens, fives, ones, quarters, dimes, nickels, and pennies, and build a print statement declaring these to the user.
  */
-public class MakingChange_Madan { // stores main function, any common functions for both single and multiple
+public class MakingChange_Madan {
 
     /**
      * @param args the command line arguments
@@ -284,13 +284,14 @@ public class MakingChange_Madan { // stores main function, any common functions 
         System.out.println("That's awesome! How much does that cost? The dollar sign is optional."); // ask for price of custom order
         price = removeDollarSign(input.nextLine()); // check for price of order, make acceptable value
         
-        while ((!(price > 0)) || (price * 100 != (Math.floor(100 * price)))) { // repeat while price is unacceptable
+        while ((!(price > 0)) || ((round(price * 10000) / 100) != (Math.floor(100 * price)))) { // repeat while price is unacceptable
             if (!(price > 0)) { // if price isn't greater than $0
                 System.out.println("I'm sorry, nothing in life is free. Please enter a price greater than $0."); // ask for acceptable price
                 price = removeDollarSign(input.nextLine()); // check for new price of order, make acceptable value
             }
-            
-            if (price * 100 != (Math.floor(100 * price))) {  // make sure price has only 2 decimal places
+            System.out.println(price * 100.0);
+            System.out.println((Math.floor(100 * price)));
+            if ((round(price * 10000) / 100) != (Math.floor(100 * price))) {  // make sure price has only 2 decimal places
                 System.out.println("Sorry, all our prices are to two decimal places. Please enter a price that conforms to typical monetary standards."); // ask for acceptable price
                 price = removeDollarSign(input.nextLine()); // check for new price of order, make acceptable value
             }
@@ -316,7 +317,7 @@ public class MakingChange_Madan { // stores main function, any common functions 
         
         change = payment - price; // define amount of change needed
         
-        if (change * 100 != (Math.floor(100 * change))) { // check to make sure change is a decimal with 2 places - if change had only 2 places, flooring change * 100 should still be change * 100; run code if not true
+        if ((round(change * 10000)/100) != (Math.floor(100 * change))) { // check to make sure change is a decimal with 2 places - if change had only 2 places, flooring change * 100 should still be change * 100; run code if not true
             change = (double)(round(change * 100)) / 100;// round change * 100 to get accurate change value in cents
         }
         
@@ -357,85 +358,16 @@ public class MakingChange_Madan { // stores main function, any common functions 
         if (origChange != 0) { // if there actually was change to give back (meaning payment didn't equal price)
             print += ("Here's your change: $" + origChange + " ("); // begin to print amount of change given, plus units
         
-            if (hundreds == 1) { // if there was only one $100 bill
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += ("1 hundred"); // add to print statement
-            } else if (hundreds > 1) { // if there are multiple
-               print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-               print += (hundreds + " hundreds"); // add number of hundreds to print statement
-            }
-            
-            if (fifties == 1) { // if there was only one $50 bill
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += ("1 fifty"); // add to print statement
-            } else if (fifties > 1) { // if there are multiple
-               print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-               print += (fifties + " fifties"); // add number of fifties to print statement
-            }
-            
-            if (twenties == 1) { // if there was only one $20 bill
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += ("1 twenty"); // add to print statement
-            } else if (tens > 1) { // if there are multiple
-               print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-               print += (twenties + " twenties"); // add number of twenties to print statement
-            }
-            
-            if (tens == 1) { // if there was only one $10 bill
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += ("1 ten"); // add to print statement
-            } else if (tens > 1) { // if there are multiple
-               print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-               print += (tens + " tens"); // add number of tens to print statement
-            }
-
-            if (fives == 1) { // if there was only one $5 bill
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += ("1 five"); // add to print statement
-            } else if (fives > 1) { // if there are multiple
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += (fives + " fives"); // add number of fives to print statement
-            }
-
-            if (ones == 1) { // if there was only one $1 bill
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += ("1 one"); // add to print statement
-            } else if (ones > 1) { // if there are multiple
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += (ones + " ones"); // add number of ones to print statement
-            }
-
-            if (quarters == 1) { // if there was only one quarter
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += ("1 quarter"); // add to print statement
-            } else if (quarters > 1) { // if there are multiple
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += (quarters + " quarters"); // add number of quarters to print statement
-            }
-
-            if (dimes == 1) { // if there was only one dime
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += ("1 dime"); // add to print statement
-            } else if (dimes > 1) { // if there are multiple
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += (dimes + " dimes"); // add number of dimes to print statement
-            }
-
-            if (nickels == 1) { // if there was only one nickel
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += ("1 nickel"); // add to print statement
-            } else if (nickels > 1) { // if there are multiple
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += (nickels + " nickels"); // add number of nickels to print statement
-            }
-
-            if (pennies == 1) { // if there was only one penny
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += ("1 penny"); // add to print statement
-            } else if (pennies > 1) { // if there are multiple
-                print += checkIfCommaNeeded(print); // if a comma is necessary, add it
-                print += (pennies + " pennies"); // add number of pennies to print statement
-            }
+            print += addChangeToPrint(print, hundreds, "hundred", "hundreds");
+            print += addChangeToPrint(print, fifties, "fifty", "fifties");
+            print += addChangeToPrint(print, twenties, "twenty", "twenties");
+            print += addChangeToPrint(print, tens, "ten", "tens");
+            print += addChangeToPrint(print, fives, "five", "fives");
+            print += addChangeToPrint(print, ones, "one", "ones");
+            print += addChangeToPrint(print, quarters, "quarter", "quarters");
+            print += addChangeToPrint(print, dimes, "dime", "dimes");
+            print += addChangeToPrint(print, nickels, "nickel", "nickels");
+            print += addChangeToPrint(print, pennies, "penny", "pennies");
 
             print += ("). "); // close parentheses opened at beginning of statement
         }
@@ -445,35 +377,35 @@ public class MakingChange_Madan { // stores main function, any common functions 
         System.out.println(print); // print entire concatenated print statement
     }
     
-    public static int getChangeForUnit(double change, double unit) {
+    public static String addChangeToPrint(String print, int amount, String unitSingle, String unitMultiple) {
         
-        int unitToCheck = (int)(unit * 100); // allows swich statement to compare ints instead of doubles
+        String returnStatement = ""; // stores String returned
         
-        switch (unitToCheck) { // checks by cent amount, not dollar amount (ex. nickel is 5 instead of 0.05)
-            case 10000: // hundreds
-                return (int)((change - (change % 10000)) / 10000); // checks remainder when trying to divide by $100 bills (in cents), then subtracts remainder from initial change value and divides result by $100
-            case 5000: // fifties
-                return (int)((change - (change % 5000)) / 5000); // checks remainder when trying to divide by $50 bills (in cents), then subtracts remainder from initial change value and divides result by $50
-            case 2000: // twenties
-                return (int)((change - (change % 2000)) / 2000); // checks remainder when trying to divide by $20 bills (in cents), then subtracts remainder from initial change value and divides result by $20
-            case 1000: // tens
-                return (int)((change - (change % 1000)) / 1000); // checks remainder when trying to divide by $10 bills (in cents), then subtracts remainder from initial change value and divides result by $10
-            case 500: // fives
-                return (int)((change - (change % 500)) / 500); // checks remainder when trying to divide by $5 bills (in cents), then subtracts remainder from initial change value and divides result by $5
-            case 100: // ones
-                return (int)((change - (change % 100)) / 100); // checks remainder when trying to divide by $1 bills (in cents), then subtracts remainder from initial change value and divides result by $1
-            case 25: // quarters
-                return (int)((change - (change % 25)) / 25); // checks remainder when trying to divide by quarters (in cents), then subtracts remainder from initial change value and divides result by 25¢
-            case 10: // dimes
-                return (int)((change - (change % 10)) / 10); // checks remainder when trying to divide by dimes (in cents), then subtracts remainder from initial change value and divides result by 10¢
-            case 5: // nickels
-                return (int)((change - (change % 5)) / 5); // checks remainder when trying to divide by nickels (in cents), then subtracts remainder from initial change value and divides result by 5¢
-            case 1: // pennies
-                return (int)((change - (change % 1)) / 1); // checks remainder when trying to divide by pennies (in cents), then subtracts remainder from initial change value and divides result by 1¢
-            default: // if unit given is not a recognized bill/coin
-                System.out.println("getChangeForUnit unit error"); // print error
-                return 0; // return no change possible for given value
+        if (amount == 1) { // if there was only one bill/coin
+            returnStatement += checkIfCommaNeeded(print); // check if print statement needs a comma
+            returnStatement += ("1 " + unitSingle); // add to print statement
+        } else if (amount > 1) { // if there are multiple
+            returnStatement += checkIfCommaNeeded(print); // check if print statement needs a comma
+            returnStatement += (amount + " " + unitMultiple); // add number of bils/coins to print statement
+        } else { // if there are zero of unit
+            returnStatement += ""; // don't return anything
         }
+        
+        return returnStatement; // send back result of function
+    }
+    
+    public static int getChangeForUnit(double change, double unit) { // takes inputs: change (amount of change left), unit (which bill/coin)
+        
+        int unitToCheck = (int)(unit * 100); // allows comparison of ints instead of doubles
+        
+        if ((unitToCheck == (10000)) || (unitToCheck == (5000)) || (unitToCheck == (2000)) || (unitToCheck == (1000)) || (unitToCheck == (500)) || (unitToCheck == (100)) || (unitToCheck == (25)) || (unitToCheck == (10)) || (unitToCheck == (5)) || (unitToCheck == (1))) { // only run if unit is a recognized bill amount
+            return (int)((change - (change % unitToCheck)) / unitToCheck); // return correct number of bills/coins
+        } else {
+            System.out.println("getChangeForUnit unit error"); // print error
+            System.exit(0); // end program (must be some code malfunction)
+            return 0; // necessary to avoid "missing return statement" error
+        }
+        
     }
     
     public static double removeDollarSign(String text) { // remove any unnecessary text from inputs
@@ -519,11 +451,11 @@ public class MakingChange_Madan { // stores main function, any common functions 
         System.out.println("Your total today is $" + total + ". How much are you going to pay?"); // ask for payment
         payment = removeDollarSign(input.nextLine()); // receive payment, reduce to just a double w/o any text or other characters
         
-        while ((payment < total) || ((payment * 100) != (Math.floor(100 * payment)))) { // repeat while either of two below conditions are not met
+        while ((payment < total) || ((round(payment * 10000) / 100) != (Math.floor(100 * payment)))) { // repeat while either of two below conditions are not met
             if (payment < total) { // repeat while payment doesn't cover price
                 System.out.println("Sorry, that's not enough to cover $" + total + ". Please enter an amount of money that covers the cost."); // ask for enough money to cover total
                 payment = removeDollarSign(input.nextLine()); // receive new payment, reduce to a double w/o any text or other characters
-            } else if ((payment * 100) != (Math.floor(100 * payment))) { // repeat while payment has more than 2 decimal places
+            } else if ((round(payment * 10000) / 100) != (Math.floor(100 * payment))) { // repeat while payment has more than 2 decimal places
                 System.out.println("Sorry, we can't accept any more than two decimal places. Please enter an amount of money that conforms to typical monetary standards."); // tell user
                 payment = removeDollarSign(input.nextLine()); // receive new payment, reduce to a double w/o any text or other characters
             }
