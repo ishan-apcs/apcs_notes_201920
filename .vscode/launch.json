@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Debug (Launch)-App<HW7>",
+            "request": "launch",
+            "mainClass": "com.mistlogic.App",
+            "projectName": "HW7"
+        },
+        
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "com.mistlogic.App"
+        },
+        {
+            "type": "java",
             "name": "Debug (Launch)",
             "request": "launch",
             "mainClass": ""
