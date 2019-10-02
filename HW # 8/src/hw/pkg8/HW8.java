@@ -8,7 +8,6 @@ package hw.pkg8;
 import java.util.Scanner;
 
 /**
- *
  * @author ishanmadan
  */
 public class HW8 {
