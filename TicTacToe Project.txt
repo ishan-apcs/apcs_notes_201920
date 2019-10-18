@@ -1,0 +1,10 @@
+  A   B   C
+1   |   |  
+ ---+---+---
+2   |   |  
+ ---+---+---
+3   |   |  
+
+tic tac toe
+2d array to store user's values
+ensure that user doesn't overwrite old things, ensure that user only gives valid results for rows and columns

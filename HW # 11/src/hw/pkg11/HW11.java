@@ -17,28 +17,28 @@ public class HW11 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println(gcd(18, 24));
-        System.out.println(piApprox(1000));
-        System.out.println(reverse("hello there!"));
-        reverseNum();
-        System.out.println(reverse(5803));
-        System.out.println(checkPrime2(127));
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.println("Enter the size of the array that is to be created:");
-        int size = scanner.nextInt();
-        
-        double[] array = new double[size];
-        
-        System.out.println("Enter the " + size + " elements of the array:");
-        
-        
-        for(int i=0; i<size; i++) {
-            array[i] = scanner.nextDouble();
-        }
-        
-        System.out.println(min(array));
-        int[] array2;
+//        System.out.println(gcd(18, 24));
+//        System.out.println(piApprox(1000));
+//        System.out.println(reverse("hello there!"));
+//        reverseNum();
+//        System.out.println(reverse(5803));
+        System.out.println(checkPrime2(2019));
+//        Scanner scanner = new Scanner(System.in);
+//        
+//        System.out.println("Enter the size of the array that is to be created:");
+//        int size = scanner.nextInt();
+//        
+//        double[] array = new double[size];
+//        
+//        System.out.println("Enter the " + size + " elements of the array:");
+//        
+//        
+//        for(int i=0; i<size; i++) {
+//            array[i] = scanner.nextDouble();
+//        }
+//        
+//        System.out.println(min(array));
+//        int[] array2;
     }
     
     public static double min(double[] array) {
