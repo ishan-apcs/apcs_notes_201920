@@ -25,9 +25,9 @@ public class People {
         people.add(ishan);
         people.add(andrew);
         
-//        for (Person person : people) {
-//            person.export();
-//        }
+        for (Person person : people) {
+            person.export();
+        }
 
     }
 }
