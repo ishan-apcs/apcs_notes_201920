@@ -6,27 +6,16 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - HW13",
-            "request": "launch",
-            "mainClass": "hw.pkg13.HW13"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - App",
-            "request": "launch",
-            "mainClass": "com.mistlogic.App"
-        },
-        {
-            "type": "java",
-            "name": "Debug (Launch)",
-            "request": "launch",
-            "mainClass": ""
-        },
-        {
-            "type": "java",
             "name": "Debug (Launch) - Current File",
             "request": "launch",
             "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<HW7>",
+            "request": "launch",
+            "mainClass": "com.mistlogic.App",
+            "projectName": "HW7"
         },
         {
             "type": "java",
@@ -34,6 +23,38 @@
             "request": "launch",
             "mainClass": "com.mistlogic.App",
             "projectName": "MavenTestProject"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<Printing2>",
+            "request": "launch",
+            "mainClass": "com.mistlogic.App",
+            "projectName": "Printing2"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<Printing3>",
+            "request": "launch",
+            "mainClass": "com.mistlogic.App",
+            "projectName": "Printing3"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-HW13",
+            "request": "launch",
+            "mainClass": "hw.pkg13.HW13"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-HW14",
+            "request": "launch",
+            "mainClass": "hw.pkg14.HW14"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Teachers",
+            "request": "launch",
+            "mainClass": "teachers.Teachers"
         }
     ]
 }
