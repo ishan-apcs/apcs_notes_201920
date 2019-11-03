@@ -79,7 +79,7 @@ public class HW14 {
         rolls[9][0] = 11;
         rolls[10][0] = 12;
 
-        int limit = 100000;
+        int limit = 10000;
         for (int i = 0; i < limit; i++) {
             int rand1 = (int)(Math.random() * 6 + 1);
             int rand2 = (int)(Math.random() * 6 + 1);
@@ -87,6 +87,7 @@ public class HW14 {
             int sum = rand1 + rand2;
 
             rolls[sum-2][1]++;
+            System.out.println(i);
         }
         
         String line = "\n+----+-------+";
@@ -138,8 +139,6 @@ public class HW14 {
             closest[i][4] = LIMIT;
         }
 
-        int offset = 0;
-
         for (int i = 0; i < points.length; i++) {
             for (int j = i; j < points.length; j++) {
                 double distance = (double)(Math.round(Math.sqrt(Math.pow(points[j][0] - points[i][0], 2) + Math.pow(points[j][1] - points[i][1], 2)) * 1000))/1000;
@@ -163,8 +162,6 @@ public class HW14 {
                                 break;
                             }
                         }
-                        double a = points[i][0];
-                        a = closest[k][0];
                         closest[k][0] = points[i][0];
                         closest[k][1] = points[i][1];
                         closest[k][2] = points[j][0];
@@ -183,6 +180,83 @@ public class HW14 {
     }
 
     public static void problem5() {
+        String[][] brackets = new String [16][2];
         
+        brackets[0][0] = "{}";
+        brackets[1][0] = "";
+        brackets[2][0] = "{}{}";
+        brackets[3][0] = "{";
+        brackets[4][0] = "}";
+        brackets[5][0] = "}{";
+        brackets[6][0] = "{{{}{{}}}}";
+        brackets[7][0] = "{{}}}{}"; 
+        brackets[8][0] = "{}}{}{";
+        brackets[9][0] = "{{{{{}}{{}}}"; 
+        brackets[10][0] = "{}}"; 
+        brackets[11][0] = "{{}";
+        brackets[12][0] = "{{{}}{{}}";
+        brackets[13][0] = "{{}{{}{{}}}}"; 
+        brackets[14][0] = "}{}{}{"; 
+        brackets[15][0] = "{}}{{}";
+
+        String[][] strings = new String[16][0];
+
+        boolean[] matches = new boolean[16];
+
+        for (int i = 0; i < brackets.length; i++) {
+            strings[i] = brackets[i][0].split("");
+        }
+
+        for (int i = 0; i < matches.length; i++) {
+            matches[i] = true;
+        }
+
+        for (int i = 0; i < strings.length; i++) { // iterates through each separate string
+            int count = 0;
+            int j = 0;
+            while (count >= 0 && j < strings[i].length) { // iterates through each character in a string
+                String string = strings[i][j];
+                
+                if (string.equals("{")) {
+                    count++;
+                } else if (string.equals("}")) {
+                    count--;
+                }
+
+                if (count < 0) {
+                    matches[i] = false;
+                }
+                j++;
+            }
+            if (count != 0) {
+                matches[i] = false;
+            }
+        }
+
+        int length = 0;
+
+        for (String[] array : strings) {
+            if (array.length > length) {
+                length = array.length;
+            }
+        }
+
+        for (int i = 0; i < matches.length; i++) {
+            System.out.print("+");
+            for (int j = 0; j < length + 2; j++) {
+                System.out.print("-");
+            }
+            System.out.print("+");
+            System.out.println("-------+");
+            System.out.printf("|%" + (length + 1) + "s", " " + brackets[i][0]);
+            System.out.printf(" | %5s |\n", matches[i]);
+        }
+
+        System.out.print("+");
+        for (int j = 0; j < length + 2; j++) {
+            System.out.print("-");
+        }
+        System.out.print("+");
+        System.out.println("-------+");
     }
 }
