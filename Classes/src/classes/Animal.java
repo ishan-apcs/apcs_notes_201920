@@ -32,6 +32,10 @@ public class Animal {
         extinct = inExtinct;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setAge(int inAge) {
         age = inAge;
     }
