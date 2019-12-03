@@ -16,7 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        String[] students = {"Ally", "Bob", "Cati", "Doug", "Ethel","Frank"};
+        /* String[] students = {"Ally", "Bob", "Cati", "Doug", "Ethel","Frank"};
 
         int[][] multipleAssignments = {{5,6,7,8,9,10},  {5,6,8,4,9,4}, {5,3,9,6,9,8}};        
 
@@ -43,7 +43,14 @@ public class Main {
                 System.out.print(row[i] + "\t");
             }
             System.out.println();
-        }
+        } */
+
+        int[] list = {5,10,15,20,25,20,15,10,5};
+        int max = list.length-1;
+        for(int k = max; k > 0; k--)
+            list[k] = list[k]/list[max];
+        for(int k = 0; k < list.length; k++)
+            System.out.print(list[k] + " ");
     }
     
 }
