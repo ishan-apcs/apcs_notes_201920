@@ -1,0 +1,60 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<HW7>",
+            "request": "launch",
+            "mainClass": "com.mistlogic.App",
+            "projectName": "HW7"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<MavenTestProject>",
+            "request": "launch",
+            "mainClass": "com.mistlogic.App",
+            "projectName": "MavenTestProject"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<Printing2>",
+            "request": "launch",
+            "mainClass": "com.mistlogic.App",
+            "projectName": "Printing2"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<Printing3>",
+            "request": "launch",
+            "mainClass": "com.mistlogic.App",
+            "projectName": "Printing3"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ConvertBases",
+            "request": "launch",
+            "mainClass": "convertbases.ConvertBases"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Search",
+            "request": "launch",
+            "mainClass": "search.Search"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Sort",
+            "request": "launch",
+            "mainClass": "sort.Sort"
+        }
+    ]
+}
