@@ -10,7 +10,6 @@ public class Blackjack {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         Deck playingCards = new Deck();
         System.out.println(playingCards.getDeck());
         playingCards.shuffle();
