@@ -6,8 +6,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         // create a space in memory
         int[] array = new int[5];
-        ArrayList<Integer> arrayList = new ArrayList<Integer>(2);
-
+        ArrayList<Integer> arrayList = new ArrayList<Integer>(3);
+        
         // get item
         int arrayItem = array[2];
         int arrayListItem = arrayList.get(2);
