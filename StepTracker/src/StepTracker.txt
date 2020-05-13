@@ -1,0 +1,36 @@
+class StepTracker {
+    private int minSteps;
+    private ArrayList<Integer> days;
+
+    public StepTracker(int activeMin) {
+        minSteps = activeMin;
+        days = new ArrayList<Integer>();
+    }
+
+    public void addDailySteps(int steps) {
+        days.add(steps);
+    }
+
+    public int activeDays() {
+        int count = 0;
+        for (int steps : days) {
+            if (steps >= minSteps) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public double averageSteps() {
+        if (days.size() > 0) {
+            double sum = 0;
+            for (int steps : days) {
+                sum += steps;
+            }
+
+            return sum / days.size();
+        } else {
+            return 0;
+        }
+    }
+}
