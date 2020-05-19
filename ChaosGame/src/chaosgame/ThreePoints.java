@@ -8,12 +8,12 @@ import javax.swing.*;
  * @author sebek
  */
 public class ThreePoints extends JPanel {
-    private int ax = 300;
+    private int ax = 510;
     private int ay = 10;
-    private int bx = 600;
-    private int by = 600;
+    private int bx = 1010;
+    private int by = 1010;
     private int cx = 10;
-    private int cy = 600;
+    private int cy = 1010;
 
     private Point A = new Point(ax, ay);
     private Point B = new Point(bx, by);
@@ -25,7 +25,7 @@ public class ThreePoints extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g); // call superclass's paintComponent
 
-        setBackground(Color.CYAN);
+        setBackground(Color.BLACK);
         g.setColor(Color.RED);
         g.fillOval(ax, ay, size, size);
         g.setColor(Color.BLUE);
@@ -33,7 +33,7 @@ public class ThreePoints extends JPanel {
         g.setColor(Color.GREEN);
         g.fillOval(cx, cy, size, size);
         int rand = (int) (Math.random() * 3 + 1);// Random number from 1 to 3
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 100000; i++) {
             rand = (int) (Math.random() * 3 + 1);
             if (rand == 1) {
                 S.setX(.5 * (A.getX() - S.getX()) + S.getX());

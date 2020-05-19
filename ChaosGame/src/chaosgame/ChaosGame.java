@@ -17,10 +17,10 @@ public class ChaosGame {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ThreePoints triangle = new ThreePoints();
         frame.setLocation(new Point(0, 0)); //location on my screen
-        frame.setSize(new Dimension(650, 650)); //dimension frame
+        frame.setSize(new Dimension(1100, 1100)); //dimension frame
         frame.setTitle("Three Points");
         frame.setVisible(true);           
         frame.add( triangle ); // add colorJPanel to frame
-        frame.pack();
-        }
+        // frame.pack();
+    }
 }
