@@ -48,7 +48,7 @@ public class DrawCanvas extends JPanel {
 
         setBackground(CANVAS_BACKGROUND);
         g.setColor(OBJECT_COLOR);
+        g.fillRoundRect(x1, y1, size, size, 30, 30);
         g.fillOval(x1, y1, size, size);
-        g.drawRoundRect(2 * x1, 2 * y1, size, size, 30, 30);
     }
 }
